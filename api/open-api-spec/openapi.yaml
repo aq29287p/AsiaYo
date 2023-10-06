@@ -1,0 +1,25 @@
+openapi: 3.0.3
+tags:
+  - name: API狀態
+    description: 確認API狀態
+components:
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT # optional, arbitrary value for documentation purposes
+info:
+  title: AsiaYo APIs
+  description: AsiaYo APIs
+  version: "1.0"
+  contact:
+    name: Eugene
+    email: a13579230@gmail.com
+
+servers:
+  - url: "http://127.0.0.1:5000"
+    description: Local 環境
+
+paths:
+  "/":
+    $ref: "schemas/alive.yaml"
