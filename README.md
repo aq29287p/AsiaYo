@@ -44,6 +44,7 @@ git clone https://github.com/aq29287p/AsiaYo.git
 在 project 目錄下執行下面的 command
 
 ```bash
+cd AsiaYo
 # 創建虛擬環境 venv
 python3 -m venv venv
 # 進入虛擬環境 venv
