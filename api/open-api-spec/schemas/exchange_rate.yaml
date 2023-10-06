@@ -1,0 +1,98 @@
+get:
+  tags:
+    - 匯率轉換
+  summary: 匯率轉換
+  description: 匯率轉換
+
+  parameters:
+    - in: query
+      name: source
+      schema:
+        type: string
+        default: USD
+        enum:
+          - TWD
+          - USD
+          - JPY
+        required: true
+        description: TWD 台幣, USD 美元, JPY 日圓
+    - in: query
+      name: target
+      schema:
+        type: string
+        default: JPY
+        enum:
+          - TWD
+          - USD
+          - JPY
+        required: true
+        description: TWD 台幣, USD 美元, JPY 日圓
+    - in: query
+      name: amount
+      schema:
+        type: string
+        default: $1,525
+        required: true
+        description: 以$ 開頭
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              msg:
+                type: str
+                description: 訊息
+              amount:
+                type: str
+                description: 匯率轉換後金額
+          example:
+            {
+              "msg": "success",
+              "amount": "$170496.53"
+            }
+    404:
+      description: wrong url
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          example:
+            {
+              "message": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.",
+            }
+    400:
+      description: invalid source or target or amount
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          example: { "message": "source 參數錯誤." }
+    422:
+      description: invalid amount
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          example: { "message": "amount 應以 $ 開頭 例如 $12.45" }
+    409:
+      description: 不支援的貨幣
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          example: { "message": "CAD is not support"}

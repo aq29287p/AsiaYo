@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restful import Api
 
 from api.routes.api_home import ApiHome
+from api.routes.api_exchange_rate import ApiExchangeRate
 
 from api.routes.open_api_spec import OpenApiSpec
 
@@ -18,3 +19,6 @@ def setup_routes(app: Flask):
 
     api = Api(app)
     api.add_resource(ApiHome, "/")
+
+    # 匯率轉換
+    api.add_resource(ApiExchangeRate,"/exchange-rate", endpoint="exchangeRate")

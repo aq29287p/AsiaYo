@@ -3,11 +3,11 @@ import os.path
 import paramiko
 import pinject
 from flask import Flask
-
+from api.biz.exchange_rate_service import ExchangeRateService
 from config.api_config import Config
 
 service_classes = [
-
+    ExchangeRateService
 ]
 
 

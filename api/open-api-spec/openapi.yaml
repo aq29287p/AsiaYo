@@ -2,6 +2,8 @@ openapi: 3.0.3
 tags:
   - name: API狀態
     description: 確認API狀態
+  - name: 匯率轉換
+    description: 匯率轉換
 components:
   securitySchemes:
     bearerAuth: # arbitrary name for the security scheme
@@ -23,3 +25,6 @@ servers:
 paths:
   "/":
     $ref: "schemas/alive.yaml"
+
+  "/exchange-rate":
+    $ref: "schemas/exchange_rate.yaml"
