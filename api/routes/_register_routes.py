@@ -21,4 +21,4 @@ def setup_routes(app: Flask):
     api.add_resource(ApiHome, "/")
 
     # 匯率轉換
-    api.add_resource(ApiExchangeRate,"/exchange-rate", endpoint="exchangeRate")
+    api.add_resource(ApiExchangeRate,"/exchange-rate", endpoint="exchange-rate")
