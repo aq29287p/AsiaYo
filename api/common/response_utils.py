@@ -27,21 +27,3 @@ def api_response(
         http_status,
         http_headers
     )
-
-
-def api_pagination_response(
-        data: Union[list, dict],
-        page: int,
-        page_size: int,
-        total: int,
-        status: int = 200,
-        updated_at: str = None,
-        **kwargs
-) -> Response:
-    """API Response 分頁"""
-    kwargs["page"] = page
-    kwargs["total"] = total
-    kwargs["pageSize"] = page_size
-    if updated_at:
-        kwargs["updatedAt"] = updated_at
-    return api_response(status, data, **kwargs)
