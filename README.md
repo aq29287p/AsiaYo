@@ -1,6 +1,8 @@
 # AsiaYo API
 
 ## 系統需求
+### Ubuntu
+- Version: `22.04`
 ### Python
 - Version: >= `3.10`
 
@@ -8,7 +10,9 @@
 在 project 目錄下執行下面的 command
 
 ```bash
+# 創建虛擬環境 venv
 python3 -m venv venv
+# 進入虛擬環境 venv
 . venv/bin/activate
 ```
 
